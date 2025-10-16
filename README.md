@@ -1,4 +1,4 @@
-# Parallel_Programming
+
 # Parallel_Programming — Parallel MergeSort Implementations
 
 Kho lưu trữ này chứa nhiều biến thể của thuật toán Merge Sort được triển khai bằng C và OpenMP, nhằm minh họa các kĩ thuật song song hóa khác nhau — từ cách song song hóa đệ quy cơ bản đến tối ưu hoá bộ nhớ và song song hóa chính hàm merge.
@@ -18,11 +18,6 @@ Kho lưu trữ này chứa nhiều biến thể của thuật toán Merge Sort �
   - Ý tưởng: Loại bỏ đệ quy, dùng vòng lặp với kích thước đoạn con tăng dần (1,2,4,...).
   - Hoạt động: Trong mỗi lượt, các merge giữa cặp đoạn con độc lập → dùng `#pragma omp parallel for` để song song hoá vòng lặp merge.
   - Mục đích: Thể hiện cách cấu trúc lại thuật toán để phù hợp hơn với song song hoá vòng lặp.
-
-- `hybrid_mergesort.c` — Phương pháp lai (Hybrid)
-  - Ý tưởng: Dùng ngưỡng (THRESHOLD) để với các mảng con nhỏ chuyển sang Insertion Sort tuần tự.
-  - Hoạt động: Tiếp cận từ Top-down nhưng nếu độ dài mảng <= THRESHOLD thì chạy Insertion Sort tuần tự thay vì tạo task.
-  - Mục đích: Giảm chi phí quản lý task khi mảng con quá nhỏ — một tối ưu thực tế hay dùng trong thư viện hiệu năng.
 
 - `memory_optimized_mergesort.c` — Tối ưu hóa bộ nhớ
   - Ý tưởng: Tránh malloc nhiều lần và copy dư thừa bằng cách cấp phát một buffer tạm toàn cục và hoán đổi vai trò nguồn ↔ đích ở mỗi cấp độ đệ quy.
