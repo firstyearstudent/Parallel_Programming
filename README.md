@@ -1,5 +1,5 @@
 
-# Parallel_Programming — Parallel MergeSort Implementations
+# Parallel MergeSort Implementations
 
 ## Các file chính
 - `Merge_sort_Parallel.c` — Top-down (Đệ quy)
